@@ -1,0 +1,106 @@
+plugins {
+    id "com.gradleup.shadow" version "8.3.0"
+}
+
+architectury {
+    platformSetupLoomIde()
+    forge()
+}
+
+loom {
+    accessWidenerPath = file("../common/src/main/resources/creategsrpm.accesswidener")
+
+    forge {
+        convertAccessWideners = true
+        extraAccessWideners.add loom.accessWidenerPath.get().asFile.name
+    }
+}
+
+configurations {
+    common
+    shadowCommon
+    compileClasspath.extendsFrom common
+    runtimeClasspath.extendsFrom common
+    developmentForge.extendsFrom common
+}
+
+repositories {
+    maven { url = "https://maven.parchmentmc.org" }
+    maven { url = "https://maven.blamejared.com/" }
+    maven { url = "https://modmaven.dev/" }
+    maven { url = "https://mvn.devos.one/releases" }
+    maven { url = "https://mvn.devos.one/snapshots" }
+    maven { url = "https://maven.jamieswhiteshirt.com/libs-release" }
+    maven { url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven" }
+    maven {
+        url = "https://jitpack.io/"
+        content { includeGroupAndSubgroups("com.github") }
+    }
+    maven { url = "https://maven.shedaniel.me" }
+    maven { url = "https://maven.terraformersmc.com/releases" }
+    maven { url = "https://api.modrinth.com/maven" }
+}
+
+dependencies {
+    forge("net.minecraftforge:forge:$minecraft_version-$forge_version")
+    common(project(path: ":common", configuration: "namedElements")) { transitive = false }
+    shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
+
+    modImplementation("maven.modrinth:create:$create_forge_version") { transitive = false }
+    modImplementation("com.tterrag.registrate:Registrate:$registrate_forge_version")
+
+    modLocalRuntime("mezz.jei:jei-$minecraft_version-forge:$jei_version") { transitive = false }
+}
+
+processResources {
+    Map<String, Object> properties = [
+            "version": version,
+            "forge_version": forge_version.split("\\.")[0],
+            "minecraft_version": minecraft_version,
+            "create_version": create_forge_version.split("-")[0]
+    ]
+    inputs.properties(properties)
+
+    filesMatching("META-INF/mods.toml") {
+        expand properties
+    }
+}
+
+loom {
+    forge {
+        mixinConfig(
+                "creategsrpm-common.mixins.json",
+                "creategsrpm.mixins.json"
+        )
+    }
+}
+
+shadowJar {
+    exclude "fabric.mod.json"
+    exclude "architectury.common.json"
+
+    configurations = [project.configurations.shadowCommon]
+    archiveClassifier = "dev-shadow"
+}
+
+remapJar {
+    input.set shadowJar.archiveFile
+    dependsOn shadowJar
+    archiveClassifier = null
+}
+
+jar {
+    archiveClassifier = "dev"
+}
+
+sourcesJar {
+    def commonSources = project(":common").sourcesJar
+    dependsOn commonSources
+    from commonSources.archiveFile.map { zipTree(it) }
+}
+
+components.java {
+    withVariantsFromConfiguration(project.configurations.shadowRuntimeElements) {
+        skip()
+    }
+}

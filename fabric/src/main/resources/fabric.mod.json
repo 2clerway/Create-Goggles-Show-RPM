@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "creategsrpm",
+  "version": "${version}",
+  "name": "Create GSRPM",
+  "description": "Engineer's Goggles Now Show The RPM Of Your Machines.",
+  "authors": [
+    "Clerway"
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/creategsrpm",
+    "issues": "https://github.com/2clerway/Create-Goggles-Show-RPM/issues"
+  },
+  "license": "Apache License 2.0",
+  "icon": "assets/creategsrpm/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.clerway.cgsrpm.fabric.CreateGSRPMFabric"
+    ]
+  },
+  "mixins": [
+    "creategsrpm.mixins.json",
+    "creategsrpm-common.mixins.json"
+  ],
+  "depends": {
+    "minecraft": "${minecraft_version}",
+    "fabricloader": ">=${fabric_loader_version}",
+    "fabric-api": ">=${fabric_api_version}",
+    "create": "${create_version}"
+  }
+}

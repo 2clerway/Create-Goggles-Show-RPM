@@ -1,0 +1,37 @@
+modLoader = "javafml"
+loaderVersion = "[${forge_version},)"
+#issueTrackerURL = ""
+license = "Apache License 2.0"
+
+[[mods]]
+modId = "creategsrpm"
+version = "${version}"
+displayName = "Create GSRPM"
+authors = "Clerway"
+description = '''
+Engineer's Goggles Now Show The RPM Of Your Machines.
+'''
+logoFile = "icon.png"
+displayURL = "https://modrinth.com/mod/creategsrpm"
+issueTrackerURL = "https://github.com/2clerway/Create-Goggles-Show-RPM/issues"
+
+[[dependencies.creategsrpm]]
+modId = "forge"
+mandatory = true
+versionRange = "[${forge_version},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.creategsrpm]]
+modId = "minecraft"
+mandatory = true
+versionRange = "${minecraft_version}"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.creategsrpm]]
+modId="create"
+mandatory=true
+versionRange="${create_version}"
+ordering="NONE"
+side="BOTH"
