@@ -17,11 +17,13 @@ public abstract class KineticBlockEntityMixin {
     @Shadow(remap = false)
     public abstract float getSpeed();
 
-    @Inject(method = "addToGoggleTooltip", at = @At("RETURN"), cancellable = true, remap = false)
+    @Inject(method = "addToGoggleTooltip", at = @At("RETURN"), remap = false, cancellable = true)
     private void onAddToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking, CallbackInfoReturnable<Boolean> cir) {
         float speed = Math.abs(getSpeed());
-        tooltip.add(0, Component.literal("       RPM: " + (int)speed)
-                .withStyle(ChatFormatting.GOLD, ChatFormatting.BOLD));
+        tooltip.add(Component.literal("    ")
+                .append(Component.literal("RPM: ").withStyle(ChatFormatting.GOLD))
+                .append(Component.literal(String.valueOf((int)speed)).withStyle(ChatFormatting.GOLD))
+                .withStyle(ChatFormatting.BOLD));
         cir.setReturnValue(true);
     }
 }
