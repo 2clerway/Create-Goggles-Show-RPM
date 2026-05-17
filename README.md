@@ -1,25 +1,39 @@
+![Create: GSRPM Description Banner](https://cdn.modrinth.com/data/cached_images/d050701ab5f3fca11c581380f13bbbe3c45d75f4.png)
+<center>
+  
+[![Requires Create Fabric](https://github.com/intergrav/devins-badges/blob/v3/assets/cozy-minimal/requires/create-fabric_64h.png?raw=true)](https://modrinth.com/mod/create-fabric) [![Requires Create](https://github.com/intergrav/devins-badges/blob/v3/assets/cozy-minimal/requires/create_64h.png?raw=true)](https://modrinth.com/mod/create) ![Available For Forge](https://github.com/intergrav/devins-badges/blob/v3/assets/cozy-minimal/supported/forge_64h.png?raw=true) ![Available For Fabric](https://github.com/intergrav/devins-badges/blob/v3/assets/cozy-minimal/supported/fabric_64h.png?raw=true)
 
-Installation information
-=======
+![Modrinth Downloads](https://img.shields.io/modrinth/dt/creategsrpm?style=for-the-badge&label=total%20mod%20downloads&color=24b47e&logo=modrinth) ![Modrinth Followers](https://img.shields.io/modrinth/followers/creategsrpm?style=for-the-badge&label=followers&color=24b47e&logo=modrinth) ![Modrinth Mod Versions](https://img.shields.io/modrinth/v/creategsrpm?style=for-the-badge&label=newest%20version&color=24b47e&logo=modrinth)
+  
+  
+</center>
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+# What is Goggles Show RPM?
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+Create: GSRPM is a lightweight and simple addon for [Create](https://modrinth.com/mod/create) which adds a RPM Tooltip inside the Engineer's goggles tooltip.
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+# Why use Goggles Show RPM?
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+If you make large and complex doohickeys and dont wanna litter speedometers everywhere then GSRPM is for you because it shows the RPM of your thingamabobs in real time and it stacks, which means you wont ever lose track of your thingamajigs RPM ever.
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+# Dependencies
+
+For Forge: [Create 6.0.8 for 1.20.1](https://modrinth.com/mod/create/version/mc1.20.1-6.0.8)
+
+For Fabric: [Create Fabric 6.0.8.1 for 1.20.1](https://modrinth.com/mod/create-fabric/version/6.0.8.1+build.1744-mc1.20.1)
+
+For NeoForge: [Create 6.0.10 for 1.21.1](https://modrinth.com/mod/create/version/6.0.10+mc1.21.1)
+
+# Here are some image examples:
+
+![Water Wheel RPM](https://cdn.modrinth.com/data/e87TJnYh/images/16e3f2d53e7bc71bd78cf6bcb024eba696a9f890.png) 
+
+![Creative Motor RPM (Set To 256 RPM)](https://cdn.modrinth.com/data/e87TJnYh/images/7cd7f98e53fcfd39829b72667f6f1d4acf5d0ffc.png)
+
+<center>
+
+  <b>Create: Goggles Show RPM is open-source, and you can support it by reporting issues or adding new features!
+
+[![Github Issues](https://github.com/intergrav/devins-badges/blob/v3/assets/cozy-minimal/documentation/issues_64h.png?raw=true)](https://github.com/2clerway/Create-Goggles-Show-RPM/issues) [![Github](https://github.com/intergrav/devins-badges/blob/v3/assets/cozy-minimal/social/github-singular_64h.png?raw=true)](https://github.com/2clerway/Create-Goggles-Show-RPM/)
+
+</center>
