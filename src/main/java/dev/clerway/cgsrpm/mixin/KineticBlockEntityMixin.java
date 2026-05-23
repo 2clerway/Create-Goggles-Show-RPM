@@ -1,8 +1,9 @@
 package dev.clerway.cgsrpm.mixin;
 
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
-import net.minecraft.ChatFormatting;
+import dev.clerway.cgsrpm.CreateGSRPM;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -20,10 +21,11 @@ public abstract class KineticBlockEntityMixin {
     @Inject(method = "addToGoggleTooltip", at = @At("RETURN"), remap = false, cancellable = true)
     private void onAddToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking, CallbackInfoReturnable<Boolean> cir) {
         float speed = Math.abs(getSpeed());
-        tooltip.add(Component.literal("    ")
-                .append(Component.literal("RPM: ").withStyle(ChatFormatting.GOLD))
-                .append(Component.literal(String.valueOf((int)speed)).withStyle(ChatFormatting.GOLD))
-                .withStyle(ChatFormatting.BOLD));
+        MutableComponent line = Component.literal("    ")
+                .append(Component.literal("RPM: "))
+                .append(Component.literal(String.valueOf((int)speed)));
+        CreateGSRPM.CONFIG.style.apply(line, CreateGSRPM.CONFIG.color);
+        tooltip.add(line);
         cir.setReturnValue(true);
     }
 }

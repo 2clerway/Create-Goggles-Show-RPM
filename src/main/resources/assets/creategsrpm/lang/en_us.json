@@ -1,13 +1,2 @@
 {
-  "itemGroup.creategsrpm": "Example Mod Tab",
-  "block.creategsrpm.example_block": "Example Block",
-  "item.creategsrpm.example_item": "Example Item",
-
-  "creategsrpm.configuration.title": "Create GSRPM Configs",
-  "creategsrpm.configuration.section.creategsrpm.common.toml": "Create GSRPM Configs",
-  "creategsrpm.configuration.section.creategsrpm.common.toml.title": "Create GSRPM Configs",
-  "creategsrpm.configuration.items": "Item List",
-  "creategsrpm.configuration.logDirtBlock": "Log Dirt Block",
-  "creategsrpm.configuration.magicNumberIntroduction": "Magic Number Text",
-  "creategsrpm.configuration.magicNumber": "Magic Number"
 }
